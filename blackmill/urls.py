@@ -19,6 +19,7 @@ from blackmill import settings
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^', include("blog.url",namespace="blog")),
     url('^markdown/', include( 'django_markdown.urls')),
 ]
 if settings.DEBUG:
