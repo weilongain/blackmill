@@ -19,7 +19,7 @@ $(document).ready(function(){
 		}
 		clickEvent = false;
 	});
-})
+});
 
 $(window).load(function() {
     var boxheight = $('#myCarousel .carousel-inner').innerHeight();

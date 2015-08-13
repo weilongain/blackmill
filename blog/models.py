@@ -22,10 +22,10 @@ class Post(models.Model):
     tittle = models.CharField(max_length=50)
     preview = models.CharField(max_length=200)
     body = MarkdownField()
-    img = models.ImageField(upload_to="img",default=None)
+    img = models.ImageField(upload_to="img",default=None,blank=True)
     postime = models.DateTimeField(auto_now_add=True)
     publish = models.BooleanField(default=False)
-    topPost = models.ForeignKey(TopPost,default=None)
+    topPost = models.ForeignKey(TopPost)
     tag = models.ForeignKey(Tag)
 
     def __str__(self):
