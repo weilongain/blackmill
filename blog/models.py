@@ -1,6 +1,7 @@
 from django.db import models
 from django_markdown.models import MarkdownField
 from blackmill.settings import MEDIA_ROOT
+
 # Create your models here.
 
 

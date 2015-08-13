@@ -22,56 +22,36 @@
     
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
-      
+      {% for top in Toplis %}
+        <div class="item ">
+          <img src="{{ top.img.url }}">
+           <div class="carousel-caption">
+            <h4><a href="{% url 'blog:blogpost' pk=top.id %}">{{ top.tittle }}</a></h4>
+            <p>{{ top.preview }}...</p>
+          </div>
+        </div><!-- End Item -->
+       {% endfor %}
+
         <div class="item active">
-          <img src="../static/img/slide1.jpg">
-           <div class="carousel-caption">
-            <h4><a href="#">本週活動 【盧安達】 一律免運</a></h4>
-            <p>盧安達在烏干達的西南邊，是個在東非的內陸小國，擁有適合咖啡生長的土地，以及古老的波旁種，咖啡在1904年由德國傳教士引進盧安達，這是鄉村農家唯一可以賺取收入的作物，發展蓬勃但不似其他國家有集中拍賣的制度，合作社可直接與買家接觸做買賣，傳統上，盧安達的咖啡運往歐洲，是經由烏干達，往肯亞的Mombasa港出口，但因內戰與種族屠殺，導致咖啡豆無法順利輸出，種植銳減，知識技術甚至幾乎絕跡...</p>
-          </div>
-        </div><!-- End Item -->
- 
-         <div class="item">
-          <img src="../static/img/slide2.jpg">
-           <div class="carousel-caption">
-            <h4><a href="#">本月主打 【多收你兩倍運費！】</a></h4>
-            <p>凡是於8/1～8/31至本店消費，於活動期間即享有超收運費服務，凡是購買烘培豆我們一律收您兩倍運費！</p>
-          </div>
-        </div><!-- End Item -->
-        
-        <div class="item">
           <img src="../static/img/slide3.jpg">
            <div class="carousel-caption">
             <h4><a href="#">用礦泉水煮的精品咖啡更好喝？</a></h4>
             <p>曾經用礦泉水煮過咖啡的人或許有發現，咖啡除了色澤呈現比較深之外，在口感上也有所變化。 其實哪裏有差啊，你還不是咕嚕咕嚕的喝下去，過沒多久就跑去廁所把它給尿掉了？</p>
           </div>
         </div><!-- End Item -->
-        
-        <div class="item">
-          <img src="../static/img/slide4.jpg">
-           <div class="carousel-caption">
-            <h4><a href="#">你有發現，咖啡豆的香味越來越淡了嗎？</a></h4>
-            <p>習慣在家烹煮咖啡豆的人應該都有這種經驗，發現櫥櫃中放置的咖啡粉，所散發出的咖啡香氣越來越淡，接著咖啡開始在口感上也出現了劣化，最終變成一杯難以達到你心目中標準的悲劇咖啡。</p>
-          </div>
-        </div><!-- End Item -->
 
-        <div class="item">
-          <img src="../static/img/slide5.jpg">
-           <div class="carousel-caption">
-            <h4><a href="#">邱毅的禿頭也是蔡英文害的？</a></h4>
-            <p>針對邱毅發言，PTT網友紛紛留言噓爆，有人酸他「你禿頭大概也是DPP害的」，也許多網友笑他是「失意政客」、「吃香蕉吧你！」還有人中肯表示「好像執政的不是國民黨一樣」。</p>
-          </div>
-        </div><!-- End Item -->
                 
       </div><!-- End Carousel Inner -->
 
 
     <ul class="list-group slider-list col-sm-4">
-      <li data-target="#myCarousel" data-slide-to="0" class="list-group-item active"><img src="../static/img/slide1.jpg" class="img-slide img-thumbnail"><h4>本週活動 【盧安達】 一律免運</h4><p>盧安達在烏干達的西南邊，是個在東非的內陸小國，擁有適合咖啡生長的土地..</p></li>
-      <li data-target="#myCarousel" data-slide-to="1" class="list-group-item"><img src="../static/img/slide2.jpg" class="img-slide img-thumbnail"><h4>本月主打 【多收你兩倍運費！】</h4><p>於活動期間即享有超收運費服務，凡是購買烘培豆我們一律收您兩倍運費！</p></li>
-      <li data-target="#myCarousel" data-slide-to="2" class="list-group-item"><img src="../static/img/slide3.jpg" class="img-slide img-thumbnail"><h4>用礦泉水煮的精品咖啡更好喝？</h4><p>曾經用礦泉水煮過咖啡的人或許有發現，咖啡除了色澤呈現比較深之外..</p></li>
-      <li data-target="#myCarousel" data-slide-to="3" class="list-group-item"><img src="../static/img/slide4.jpg" class="img-slide img-thumbnail"><h4>咖啡豆的香味越來越淡了嗎？</h4><p>發現櫥櫃中放置的咖啡粉，所散發出的咖啡香氣越來越淡?</p></li>
-      <li data-target="#myCarousel" data-slide-to="4" class="list-group-item"><img src="../static/img/slide5.jpg" class="img-slide img-thumbnail"><h4>邱毅的禿頭也是蔡英文害的？</h4><p>有人酸他「你禿頭大概也是DPP害的」，也許多..</p></li>
+     {% for top in Toplis %}
+      <li data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}" class="list-group-item active"><img src="{{ top.img.url }}" class="img-slide img-thumbnail"><h4>{{ top.tittle }}</h4><p>{{ top.preview }}..</p></li>
+     {% endfor %}
+        <li data-target="#myCarousel" data-slide-to="5" class="list-group-item"><img src="../static/img/slide2.jpg" class="img-slide img-thumbnail"><h4>本月主打 【多收你兩倍運費！】</h4><p>於活動期間即享有超收運費服務，凡是購買烘培豆我們一律收您兩倍運費！</p></li>
+{#      <li data-target="#myCarousel" data-slide-to="2" class="list-group-item"><img src="../static/img/slide3.jpg" class="img-slide img-thumbnail"><h4>用礦泉水煮的精品咖啡更好喝？</h4><p>曾經用礦泉水煮過咖啡的人或許有發現，咖啡除了色澤呈現比較深之外..</p></li>#}
+{#      <li data-target="#myCarousel" data-slide-to="3" class="list-group-item"><img src="../static/img/slide4.jpg" class="img-slide img-thumbnail"><h4>咖啡豆的香味越來越淡了嗎？</h4><p>發現櫥櫃中放置的咖啡粉，所散發出的咖啡香氣越來越淡?</p></li>#}
+{#      <li data-target="#myCarousel" data-slide-to="4" class="list-group-item"><img src="../static/img/slide5.jpg" class="img-slide img-thumbnail"><h4>邱毅的禿頭也是蔡英文害的？</h4><p>有人酸他「你禿頭大概也是DPP害的」，也許多..</p></li>#}
     </ul>
 
       <!-- Controls -->
@@ -87,48 +67,34 @@
     </div><!-- End Carousel -->
 
     <div class="row">
+
       <div class="col-md-8">
+     {% for Post in postlis %}
         <div class="well blog-post">
-          <h3><a href="post.html">邱毅的禿頭也是蔡英文害的？</a></h3>
-          <p class="post-info"><i class="glyphicon glyphicon-time"></i> Posted by Brad Traversy on August 21, 2014 at 10:00 PM</p>
+          <h3><a href="{% url 'blog:blogpost' pk=Post.id %}">{{ Post.tittle }}</a></h3>
+          <p class="post-info"><i class="glyphicon glyphicon-time"></i> 發表於 {{ Post.postime.month }} 月 {{ Post.postime.day }}日  {{ Post.postime.year }}年</p>
           <hr>
-          <img src="../static/img/blog1.jpg" class="img-responsive">
+          <img src="{{ Post.img.url }}" class="img-responsive">
           <hr>
-          <p>針對邱毅發言，PTT網友紛紛留言噓爆，有人酸他「你禿頭大概也是DPP害的」，也許多網友笑他是「失意政客」、「吃香蕉吧你！」還有人中肯表示「好像執政的不是國民黨一樣」。</p>
-          <a class="btn btn-primary" href="post.html">Read More <span class="glyphicon glyphicon-chevron-right"></a>
+          <p>{{ Post.preview }}</p>
+          <a class="btn btn-primary" href="{% url 'blog:blogpost' pk=Post.id %}">Read More <span class="glyphicon glyphicon-chevron-right"></a>
         </div>
-
-        <div class="well blog-post">
-          <h3><a href="post.html">Blog Post Two</a></h3>
-          <p class="post-info"><i class="glyphicon glyphicon-time"></i> Posted by Brad Traversy on August 21, 2014 at 10:00 PM</p>
-          <hr>
-          <img src="../static/img/blog2.jpg" class="img-responsive">
-          <hr>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
-          <a class="btn btn-primary" href="post.html">Read More <span class="glyphicon glyphicon-chevron-right"></a>
-        </div>
-
-        <div class="well blog-post">
-          <h3><a href="post.html">Blog Post Three</a></h3>
-          <p class="post-info"><i class="glyphicon glyphicon-time"></i> Posted by Brad Traversy on August 21, 2014 at 10:00 PM</p>
-          <hr>
-          <img src="../static/img/blog3.jpg" class="img-responsive">
-          <hr>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
-          <a class="btn btn-primary" href="post.html">Read More <span class="glyphicon glyphicon-chevron-right"></a>
-        </div>
+    {% endfor %}
 
         <!-- Pager -->
 <ul class="pager">
+  {% if postlis.has_previous %}
   <li class="previous">
-    <a href="#">&larr; Older</a>
+    <a href="?page={{ postlis.previous_page_number }}">&larr; Older</a>
   </li>
+  {% endif %}
+  {% if postlis.has_next %}
   <li class="next">
-    <a href="#">&rarr; Next</a>
+    <a href="?page={{ postlis.next_page_number }}">&rarr; Next</a>
   </li>
+  {% endif %}
 </ul>
-
-      </div>
+        </div>
         {% include "bar.html" %}
     </div>
     </div>
