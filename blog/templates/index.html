@@ -23,7 +23,10 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
       {% for top in Toplis %}
-        <div class="item ">
+        {% if forloop.first %}<div class="item active">
+        {% else %}<div class="item">
+        {% endif %}
+
           <img src="{{ top.img.url }}">
            <div class="carousel-caption">
             <h4><a href="{% url 'blog:blogpost' pk=top.id %}">{{ top.tittle }}</a></h4>
@@ -32,13 +35,13 @@
         </div><!-- End Item -->
        {% endfor %}
 
-        <div class="item active">
-          <img src="../static/img/slide3.jpg">
-           <div class="carousel-caption">
-            <h4><a href="#">用礦泉水煮的精品咖啡更好喝？</a></h4>
-            <p>曾經用礦泉水煮過咖啡的人或許有發現，咖啡除了色澤呈現比較深之外，在口感上也有所變化。 其實哪裏有差啊，你還不是咕嚕咕嚕的喝下去，過沒多久就跑去廁所把它給尿掉了？</p>
-          </div>
-        </div><!-- End Item -->
+{#        <div class="item active">#}
+{#          <img src="../static/img/slide3.jpg">#}
+{#           <div class="carousel-caption">#}
+{#            <h4><a href="#">用礦泉水煮的精品咖啡更好喝？</a></h4>#}
+{#            <p>曾經用礦泉水煮過咖啡的人或許有發現，咖啡除了色澤呈現比較深之外，在口感上也有所變化。 其實哪裏有差啊，你還不是咕嚕咕嚕的喝下去，過沒多久就跑去廁所把它給尿掉了？</p>#}
+{#          </div>#}
+{#        </div><!-- End Item -->#}
 
                 
       </div><!-- End Carousel Inner -->
@@ -48,7 +51,7 @@
      {% for top in Toplis %}
       <li data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}" class="list-group-item active"><img src="{{ top.img.url }}" class="img-slide img-thumbnail"><h4>{{ top.tittle }}</h4><p>{{ top.preview }}..</p></li>
      {% endfor %}
-        <li data-target="#myCarousel" data-slide-to="5" class="list-group-item"><img src="../static/img/slide2.jpg" class="img-slide img-thumbnail"><h4>本月主打 【多收你兩倍運費！】</h4><p>於活動期間即享有超收運費服務，凡是購買烘培豆我們一律收您兩倍運費！</p></li>
+{#        <li data-target="#myCarousel" data-slide-to="5" class="list-group-item"><img src="../static/img/slide2.jpg" class="img-slide img-thumbnail"><h4>本月主打 【多收你兩倍運費！】</h4><p>於活動期間即享有超收運費服務，凡是購買烘培豆我們一律收您兩倍運費！</p></li>#}
 {#      <li data-target="#myCarousel" data-slide-to="2" class="list-group-item"><img src="../static/img/slide3.jpg" class="img-slide img-thumbnail"><h4>用礦泉水煮的精品咖啡更好喝？</h4><p>曾經用礦泉水煮過咖啡的人或許有發現，咖啡除了色澤呈現比較深之外..</p></li>#}
 {#      <li data-target="#myCarousel" data-slide-to="3" class="list-group-item"><img src="../static/img/slide4.jpg" class="img-slide img-thumbnail"><h4>咖啡豆的香味越來越淡了嗎？</h4><p>發現櫥櫃中放置的咖啡粉，所散發出的咖啡香氣越來越淡?</p></li>#}
 {#      <li data-target="#myCarousel" data-slide-to="4" class="list-group-item"><img src="../static/img/slide5.jpg" class="img-slide img-thumbnail"><h4>邱毅的禿頭也是蔡英文害的？</h4><p>有人酸他「你禿頭大概也是DPP害的」，也許多..</p></li>#}
