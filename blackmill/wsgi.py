@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
 ## mysite/wsgi.py
 
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "blackmill.settings")
 
 from django.core.wsgi import get_wsgi_application
 
