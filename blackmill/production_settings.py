@@ -1,4 +1,4 @@
-from settings import *
+from blackmill import settings
 
 import dj_database_url
 DATABASES = {
