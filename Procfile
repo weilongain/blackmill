@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath blackmill  blackmil.wsgi
+web: gunicorn blackmil.wsgi --log-file -
